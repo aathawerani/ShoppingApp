@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/marketPlace">
+
+    <fragment
+        android:id="@+id/marketPlace"
+        android:name="com.example.daraz4.MarketPlaceFragment"
+        android:label="fragment_market_place"
+        tools:layout="@layout/fragment_market_place" >
+        <action
+            android:id="@+id/action_marketPlace_to_productOptions"
+            app:destination="@id/productOptions" />
+        <action
+            android:id="@+id/action_marketPlace_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/productOptions"
+        android:name="com.example.daraz4.ProductOptionsFragment"
+        android:label="fragment_product_options"
+        tools:layout="@layout/fragment_product_options" >
+        <action
+            android:id="@+id/action_productOptions_to_loginFragment"
+            app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_productOptions_to_marketPlace"
+            app:destination="@id/marketPlace" />
+        <argument
+            android:name="productID"
+            app:argType="long" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.daraz4.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment_to_productOptions"
+            app:destination="@id/productOptions" />
+        <action
+            android:id="@+id/action_loginFragment_to_marketPlace"
+            app:destination="@id/marketPlace" />
+    </fragment>
+</navigation>
